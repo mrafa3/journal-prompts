@@ -20,7 +20,8 @@ A simple, static JSON API serving AI-generated journaling prompts, hosted on Git
 ### API Design
 - **Endpoint**: Single endpoint returning all prompts
 - **Selection Method**: Random prompt selection (client-side)
-- **Base URL**: `https://<username>.github.io/journal-prompts/`
+- **Base URL**: https://mrafa3.github.io/journal-prompts/
+- **API URL**: https://mrafa3.github.io/journal-prompts/journaling-prompts.json
 
 ### Data Schema
 
@@ -62,9 +63,10 @@ The "API" is simply static JSON files served by GitHub Pages. Client-side JavaSc
 
 ## Deployment
 
-1. Enable GitHub Pages in repo settings (source: main branch, root)
-2. Verify deployment at `https://<username>.github.io/journal-prompts/`
-3. Test API endpoint: fetch `journaling-prompts.json`
+Deployed via GitHub Pages (main branch, root folder).
+
+- **Landing page**: https://mrafa3.github.io/journal-prompts/
+- **API endpoint**: https://mrafa3.github.io/journal-prompts/journaling-prompts.json
 
 ## Validation
 
@@ -84,7 +86,7 @@ This will:
 
 ### JavaScript
 ```javascript
-const response = await fetch('https://<username>.github.io/journal-prompts/journaling-prompts.json');
+const response = await fetch('https://mrafa3.github.io/journal-prompts/journaling-prompts.json');
 const data = await response.json();
 const randomPrompt = data.prompts[Math.floor(Math.random() * data.prompts.length)];
 console.log(randomPrompt.prompt);
@@ -95,7 +97,7 @@ console.log(randomPrompt.prompt);
 import requests
 import random
 
-response = requests.get('https://<username>.github.io/journal-prompts/journaling-prompts.json')
+response = requests.get('https://mrafa3.github.io/journal-prompts/journaling-prompts.json')
 prompts = response.json()['prompts']
 daily_prompt = random.choice(prompts)
 print(daily_prompt['prompt'])
@@ -103,5 +105,5 @@ print(daily_prompt['prompt'])
 
 ### curl
 ```bash
-curl -s https://<username>.github.io/journal-prompts/journaling-prompts.json | jq '.prompts | .[rand * length | floor]'
+curl -s https://mrafa3.github.io/journal-prompts/journaling-prompts.json | jq '.prompts | .[rand * length | floor]'
 ```

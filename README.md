@@ -1,13 +1,15 @@
 # Journal Prompts API
 
-A free, static JSON API serving journaling prompts, hosted on GitHub Pages.
+A free, static JSON API serving 365 journaling prompts, hosted on GitHub Pages.
+
+**Live API**: https://mrafa3.github.io/journal-prompts/journaling-prompts.json
 
 ## Quick Start
 
 Fetch a random prompt:
 
 ```javascript
-const response = await fetch('https://<username>.github.io/journal-prompts/journaling-prompts.json');
+const response = await fetch('https://mrafa3.github.io/journal-prompts/journaling-prompts.json');
 const data = await response.json();
 const prompt = data.prompts[Math.floor(Math.random() * data.prompts.length)];
 console.log(prompt.prompt);
